@@ -1,13 +1,17 @@
-FROM node:20
+# Simple backend image (Node API)
+FROM node:20-alpine
 
-WORKDIR /hasanwahab-portfolio-backend
+WORKDIR /app
 
-COPY package*.json ./
+# Dependencies pehle (Docker cache ke liye)
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
-RUN npm install
+# App code + data
+COPY src ./src
+COPY data ./data
 
-COPY . .
+ENV PORT=8787
+EXPOSE 8787
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+CMD ["node", "src/server.js"]

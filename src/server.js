@@ -8,13 +8,14 @@ const { PORT, ADMIN_TOKEN } = require('./config');
 
 const app = createApp();
 
-app.listen(PORT, () => {
+// Render/Docker: must bind 0.0.0.0 (not only localhost) or health checks fail → restart loop.
+app.listen(PORT, '0.0.0.0', () => {
   // eslint-disable-next-line no-console
-  console.log(`Portfolio API http://127.0.0.1:${PORT}`);
+  console.log(`Portfolio API listening on 0.0.0.0:${PORT}`);
   // eslint-disable-next-line no-console
-  console.log(`  GET  http://127.0.0.1:${PORT}/api/portfolio`);
+  console.log(`  GET  /api/portfolio`);
   // eslint-disable-next-line no-console
-  console.log(`  PUT  http://127.0.0.1:${PORT}/api/portfolio  (Bearer ADMIN_TOKEN)`);
+  console.log(`  PUT  /api/portfolio  (Bearer ADMIN_TOKEN)`);
   if (!ADMIN_TOKEN) {
     // eslint-disable-next-line no-console
     console.warn('  WARNING: ADMIN_TOKEN empty — PUT /api/portfolio disabled (503).');
