@@ -5,132 +5,98 @@
   "heroNameLine1": "Hasan",
   "heroNameLine2": "Wahab",
   "heroInitials": "HW",
-  "heroTagline": "Flutter engineer shipping full apps: state management, REST/Firebase backends, maps & background work, local persistence, exports (PDF/DOCX/Excel), ML Kit, and polished UI. Featured work below maps to real repos I iterate on in StudioProjects.",
+  "heroProfileImageUrl": "http://127.0.0.1:8787/uploads/profile.jpg",
+  "brandLogoUrl": "http://127.0.0.1:8787/uploads/brand.jpeg",
+  "cvUrl": "http://127.0.0.1:8787/uploads/cv.pdf",
+  "heroTagline": "I design and ship Flutter apps that feel fast, stay maintainable, and scale with real product needs — from Clean Architecture and Bloc to Firebase, REST, OCR, and AI-assisted features.",
   "heroBadges": [
-    "Bloc & Provider",
+    "Clean Architecture",
+    "Bloc",
     "Firebase",
-    "Maps & location",
-    "PDF · DOCX · Excel"
+    "AI & OCR"
   ],
   "heroStats": [
     {
-      "value": "5",
-      "label": "Featured codebases"
+      "value": "3+",
+      "label": "Years building"
     },
     {
-      "value": "Multi",
-      "label": "Platform targets"
+      "value": "5+",
+      "label": "Products shipped"
     },
     {
-      "value": "Ship",
-      "label": "Ready patterns"
+      "value": "1",
+      "label": "Year in industry"
     }
   ],
   "aboutSectionEyebrow": "About",
-  "aboutHeadline": "Code-first,\nrepo-backed work.",
-  "aboutParagraph1": "I keep several Flutter apps moving in parallel — health workflows, maps & presence, productivity tooling, document builders, and scanners. The project cards below describe what each codebase actually contains today (screens, packages, patterns), not marketing claims.",
-  "aboutParagraph2": "Stacks are taken from each project’s pubspec and lib layout: Bloc/Provider, Firebase, Google Maps, ML Kit, SQLite, PDF/DOCX pipelines, and mobile ads where wired in.",
-  "aboutCodeLine": "// Portfolio ← StudioProjects/*",
+  "aboutHeadline": "Product-minded\nFlutter engineering.",
+  "aboutParagraph1": "I build mobile products end to end — clear architecture, reliable state management, and interfaces that stay calm under complexity. My work sits at the intersection of Clean Architecture, Bloc, cloud-backed data, and device capabilities like OCR, NFC, and biometrics.",
+  "aboutParagraph2": "Based in Pakistan and open to remote collaboration worldwide. I communicate clearly with product and engineering teams, debug with discipline, and care about the details users actually feel.",
+  "aboutCodeLine": "// hasanwahab · flutter · architecture · shipping",
   "aboutAchievements": [
     {
-      "title": "Doctor workflow app",
-      "subtitle": "Consultant-oriented flows: sessions, visits, NFC, invoices, packages, profile — Bloc + REST + SQLite."
+      "title": "Industry delivery at Neon Web",
+      "subtitle": "Owned feature work on production Flutter apps — Clean Architecture, Bloc, REST, Firebase, and third-party SDK integrations with Git-based collaboration."
     },
     {
-      "title": "Field & maps stack",
-      "subtitle": "Location product: Firebase auth/Firestore, Google Maps, geolocation hooks, background-service deps, notifications."
+      "title": "AI, OCR & offline-first systems",
+      "subtitle": "Shipped experiences powered by OpenAI, ML Kit, local SQLite with cloud sync, document exports, NFC, and biometric security."
     }
   ],
   "aboutMiniStats": [
     {
       "value": "Bloc",
-      "label": "Primary state"
+      "label": "State management"
     },
     {
       "value": "Firebase",
-      "label": "Auth & data"
+      "label": "Auth & realtime data"
     },
     {
       "value": "ML Kit",
-      "label": "OCR & scan"
+      "label": "Scan & OCR"
     },
     {
-      "value": "Exports",
-      "label": "PDF · Excel · DOCX"
+      "value": "REST",
+      "label": "API integration"
     }
   ],
   "projects": [
     {
-      "title": "Doctor App",
-      "tagline": "Consultant-style Flutter app: dashboard, home, sessions & visit detail, patient/session notes, profile & updates, packages, invoices, NFC card flow, location, history tracker, video playback, assistant manager — Bloc + HTTP + SQLite.",
+      "title": "Scanix",
+      "tagline": "A production-ready scanner workspace for QR and barcodes — offline-first capture, cloud sync, and clean export flows for day-to-day data work.",
       "stats": [
-        "Multi-screen",
-        "Bloc",
-        "REST + local"
-      ],
-      "stack": [
-        "Flutter",
-        "Bloc",
-        "HTTP",
-        "sqflite",
-        "NFC"
-      ],
-      "palette": [
-        "#00D4FF",
-        "#7B61FF"
-      ]
-    },
-    {
-      "title": "Location Tracking App",
-      "tagline": "Employee vs manager experiences: login, live map, history map. Firebase (Core/Auth/Firestore), Google Maps, geolocator, background service + local notifications plumbing, Provider.",
-      "stats": [
-        "Maps UI",
-        "Firebase",
-        "Background hooks"
-      ],
-      "stack": [
-        "Flutter",
-        "Firebase",
-        "Maps",
-        "Provider"
-      ],
-      "palette": [
-        "#00FFB2",
-        "#00D4FF"
-      ]
-    },
-    {
-      "title": "Neon Toolkit",
-      "tagline": "Productivity suite from repo description: Screenshot Brain (organize shots, OCR, smart folders) + homework-style QA flow with saved answers, reminders, PDF/share paths — Bloc, sqflite, ML Kit text recognition, local notifications.",
-      "stats": [
-        "OCR pipeline",
-        "Local DB",
-        "BLoC"
+        "Offline-first",
+        "Cloud sync",
+        "Excel export"
       ],
       "stack": [
         "Flutter",
         "Bloc",
         "ML Kit",
-        "sqflite"
+        "sqflite",
+        "Firebase"
       ],
       "palette": [
-        "#7B61FF",
-        "#FF6B9D"
+        "#FFB020",
+        "#7B61FF"
       ]
     },
     {
-      "title": "Resume Builder App",
-      "tagline": "Multiple resume templates (classic, modern, executive, analyst, etc.) with matching PDF generators, DOCX export pipeline, on-device storage layer, previews, onboarding — Provider, Firebase packages where enabled, rewarded ads hooks.",
+      "title": "Resumiq",
+      "tagline": "An AI-assisted resume studio that helps candidates draft ATS-aware content, then save and sync work across devices with a structured Flutter architecture.",
       "stats": [
-        "Many templates",
-        "PDF + DOCX",
-        "Local data"
+        "OpenAI",
+        "Clean Arch",
+        "Multi-device sync"
       ],
       "stack": [
         "Flutter",
-        "Provider",
-        "PDF",
-        "Firebase"
+        "Bloc",
+        "OpenAI",
+        "Firebase",
+        "GoRouter"
       ],
       "palette": [
         "#00D4FF",
@@ -138,185 +104,189 @@
       ]
     },
     {
-      "title": "Scanix",
-      "tagline": "Scan-focused app (package scan_app): live scanner, history, categories, settings, Excel export flow, SQLite persistence, ML Kit barcode + mobile_scanner, Firebase, Google Mobile Ads, haptics/audio feedback — Bloc throughout.",
+      "title": "Neon Toolkit",
+      "tagline": "An OCR-powered study companion that extracts text, solves homework with AI, and delivers polished PDF outputs with thoughtful device UX.",
       "stats": [
-        "Scan + history",
-        "Excel export",
-        "Ads ready"
+        "OCR pipeline",
+        "AI solutions",
+        "PDF output"
       ],
       "stack": [
         "Flutter",
         "Bloc",
         "ML Kit",
+        "PDF",
+        "Notifications"
+      ],
+      "palette": [
+        "#7B61FF",
+        "#FF6B9D"
+      ]
+    },
+    {
+      "title": "Expense Tracker",
+      "tagline": "A personal finance app in progress — biometric access, visual spend insights, receipt-aware flows, and offline-first sync for everyday money tracking.",
+      "stats": [
+        "FL Chart",
+        "Biometrics",
+        "In progress"
+      ],
+      "stack": [
+        "Flutter",
+        "Bloc",
+        "Firebase",
+        "FL Chart",
+        "SQLite"
+      ],
+      "palette": [
+        "#00FFB2",
+        "#00D4FF"
+      ]
+    },
+    {
+      "title": "Doctor App",
+      "tagline": "A patient-facing healthcare experience with NFC identity, video therapy sessions, and resilient online/offline data so care stays available when the network does not.",
+      "stats": [
+        "NFC identity",
+        "Video care",
+        "Offline resilient"
+      ],
+      "stack": [
+        "Flutter",
+        "Bloc",
+        "NFC",
+        "Firebase",
         "sqflite"
       ],
       "palette": [
-        "#FFB020",
+        "#00D4FF",
         "#7B61FF"
       ]
     }
   ],
   "experience": [
     {
-      "title": "Lead Flutter Engineer (dummy)",
-      "company": "Northwind Labs (sample)",
-      "range": "2022 — Present",
-      "detail": "Placeholder: owned mobile architecture, mentored 4 engineers, shipped quarterly releases with phased rollouts and feature flags."
-    },
-    {
-      "title": "Senior Mobile Engineer (sample)",
-      "company": "BlueCanopy Inc. (fake)",
-      "range": "2019 — 2022",
-      "detail": "Dummy text: migrated legacy screens to Flutter modules, set up integration tests, reduced cold start by 28% on low-end Android."
-    },
-    {
-      "title": "Software Engineer (demo)",
-      "company": "PixelForge Studio (sample)",
-      "range": "2016 — 2019",
-      "detail": "Sample role: built Android/iOS prototypes, collaborated with designers on motion specs, introduced internal design tokens."
+      "title": "Flutter Developer",
+      "company": "Neon Web",
+      "range": "2023 — 2024",
+      "detail": "Delivered and maintained production Flutter applications with Clean Architecture and Bloc. Integrated REST APIs, Firebase (Firestore and Realtime Database), and third-party SDKs. Collaborated through Git/GitHub and validated integrations with Postman, with a focus on performance, clarity, and long-term maintainability."
     }
   ],
-  "testimonials": [
-    {
-      "name": "Priya Shah (dummy)",
-      "role": "Head of Product · Sample Co",
-      "initial": "P",
-      "quote": "Sample quote: polished Flutter delivery — smooth motion and stable builds through launch (placeholder testimonial)."
-    },
-    {
-      "name": "Daniel Ortiz (sample)",
-      "role": "CTO · Demo Ventures",
-      "initial": "D",
-      "quote": "Placeholder feedback: Clear RFCs, great taste in spacing, and he actually reads the analytics after every release. Hire with confidence (dummy)."
-    },
-    {
-      "name": "Mei Lin (fake)",
-      "role": "Design Lead · Lorem Studio",
-      "initial": "M",
-      "quote": "Sample testimonial: Our Figma spec had edge cases everywhere — he caught them early and proposed better interaction patterns."
-    },
-    {
-      "name": "Omar Haddad (demo)",
-      "role": "Founder · Sandbox Apps",
-      "initial": "O",
-      "quote": "Dummy line: He treats performance like a feature. Lists scroll at 120Hz and our investors noticed the difference in the demo build."
-    }
-  ],
+  "testimonials": [],
   "contactEmail": "hasanwahab078@gmail.com",
-  "contactPhone": "0348 944 6989",
-  "contactLocation": "Pakistan · GMT+5",
-  "contactAvailability": "Open to Flutter roles, freelance modules, and collaboration — reach out by email or phone.",
+  "contactPhone": "+92 348 9446989",
+  "contactLocation": "Pakistan · Remote-friendly",
+  "contactAvailability": "Open to remote Flutter roles, freelance collaborations, and product partnerships.",
   "contactFormNameHint": "Your name",
   "contactFormEmailHint": "Your work email",
-  "contactFormMessageHint": "Budget, timeline, platforms (iOS / Android / Web), and links to designs or repos…",
+  "contactFormMessageHint": "Tell me about the product, timeline, platforms, and any links that help.",
   "socialGithub": "https://github.com/hasan-wahab",
-  "socialLinkedIn": "https://www.linkedin.com/in/hasan-wahab-b02556292",
-  "socialX": "Add your X (Twitter) or other social URL",
+  "socialLinkedIn": "https://www.linkedin.com/in/hasan-wahab6989",
+  "socialX": "",
   "services": [
     {
-      "title": "Flutter Development",
+      "title": "Flutter product development",
       "iconKey": "phone_android_rounded",
-      "description": "Dummy: feature modules, go_router, codegen, flavors, and golden screenshot tests for store-ready builds."
+      "description": "End-to-end Flutter apps with modular features, polished UI, and architecture that stays readable as the product grows."
     },
     {
-      "title": "Firebase Integration",
+      "title": "Architecture & state",
+      "iconKey": "account_tree_outlined",
+      "description": "Clean Architecture, Bloc, dependency injection, and navigation patterns that keep complex flows predictable."
+    },
+    {
+      "title": "Firebase & realtime systems",
       "iconKey": "cloud_done_rounded",
-      "description": "Sample: Auth, Firestore rules drafts, FCM topics, Remote Config experiments — all wired for dummy staging projects."
+      "description": "Auth, Firestore, Realtime Database, and offline-first sync designed around real user connectivity."
     },
     {
-      "title": "REST API Integration",
+      "title": "API integration",
       "iconKey": "api_rounded",
-      "description": "Placeholder: Retrofit-style layering, interceptors, retry + backoff, and typed DTOs from OpenAPI (fake backend)."
+      "description": "Stable Dio/HTTP layers, clear error handling, and API workflows that are easy to debug and extend."
     },
     {
-      "title": "UI / UX Implementation",
+      "title": "AI, OCR & device features",
       "iconKey": "auto_awesome_rounded",
-      "description": "Demo: adaptive layouts, haptics, custom painters, and motion specs lifted from design tools (lorem ipsum handoff)."
+      "description": "OpenAI-powered experiences, ML Kit scanning/OCR, NFC, biometrics, and thoughtful device-side UX."
     },
     {
-      "title": "App Optimization",
-      "iconKey": "speed_rounded",
-      "description": "Fake metrics story: shader warm-up, image caches, isolates for JSON, and DevTools timeline sweeps pre-release."
-    },
-    {
-      "title": "App Publishing",
-      "iconKey": "rocket_launch_rounded",
-      "description": "Sample: Play Console / App Store Connect checklists, metadata, phased releases, and CI lanes (dummy secrets)."
+      "title": "Local data & exports",
+      "iconKey": "storage_rounded",
+      "description": "SQLite, preferences, PDF generation, and Excel export pipelines for products that need durable local data."
     }
   ],
   "skillRows": [
     {
       "category": "Engineering",
-      "name": "Flutter",
-      "proficiency": 0.94,
+      "name": "Flutter & Dart",
+      "proficiency": 0.93,
       "iconKey": "layers_outlined"
     },
     {
       "category": "Engineering",
-      "name": "Dart",
+      "name": "Clean Architecture",
+      "proficiency": 0.9,
+      "iconKey": "account_tree_outlined"
+    },
+    {
+      "category": "Engineering",
+      "name": "Bloc",
       "proficiency": 0.91,
       "iconKey": "bolt_rounded"
     },
     {
-      "category": "Engineering",
-      "name": "Platform Channels",
-      "proficiency": 0.81,
-      "iconKey": "hub_rounded"
-    },
-    {
-      "category": "Architecture",
-      "name": "Bloc",
-      "proficiency": 0.87,
-      "iconKey": "account_tree_outlined"
-    },
-    {
-      "category": "Architecture",
-      "name": "Riverpod",
-      "proficiency": 0.85,
-      "iconKey": "water_drop_outlined"
-    },
-    {
-      "category": "Architecture",
-      "name": "Provider",
-      "proficiency": 0.83,
-      "iconKey": "share_outlined"
-    },
-    {
       "category": "Data & Cloud",
       "name": "Firebase",
-      "proficiency": 0.89,
+      "proficiency": 0.9,
       "iconKey": "cloud_outlined"
     },
     {
       "category": "Data & Cloud",
-      "name": "REST APIs",
-      "proficiency": 0.88,
+      "name": "REST (Dio / HTTP)",
+      "proficiency": 0.89,
       "iconKey": "api_outlined"
     },
     {
       "category": "Data & Cloud",
-      "name": "Hive / SQLite",
-      "proficiency": 0.84,
+      "name": "SQLite & Preferences",
+      "proficiency": 0.88,
       "iconKey": "storage_rounded"
     },
     {
+      "category": "AI & Device",
+      "name": "OpenAI APIs",
+      "proficiency": 0.84,
+      "iconKey": "auto_awesome_rounded"
+    },
+    {
+      "category": "AI & Device",
+      "name": "OCR & ML Kit",
+      "proficiency": 0.86,
+      "iconKey": "hub_rounded"
+    },
+    {
+      "category": "AI & Device",
+      "name": "NFC & Biometrics",
+      "proficiency": 0.8,
+      "iconKey": "phone_android_rounded"
+    },
+    {
       "category": "Delivery",
-      "name": "Git / GitHub",
-      "proficiency": 0.91,
+      "name": "GoRouter & GetIt",
+      "proficiency": 0.85,
+      "iconKey": "share_outlined"
+    },
+    {
+      "category": "Delivery",
+      "name": "Git & GitHub",
+      "proficiency": 0.92,
       "iconKey": "code_rounded"
     },
     {
       "category": "Delivery",
-      "name": "Android",
+      "name": "API debugging",
       "proficiency": 0.88,
-      "iconKey": "android_rounded"
-    },
-    {
-      "category": "Delivery",
-      "name": "iOS",
-      "proficiency": 0.86,
-      "iconKey": "phone_iphone_rounded"
+      "iconKey": "api_rounded"
     }
   ]
 }

@@ -1,0 +1,6 @@
+# Client apps (portfolio + admin) API base URL yahan SE NAHI — shared file:
+#
+#   ../hasanwahab/lib/config/api_endpoints.dart
+#
+# Wahan LOCAL / LIVE lines comment-uncomment karo.
+# Backend khud server hai; usko kisi "base URL" ki zaroorat nahi.
