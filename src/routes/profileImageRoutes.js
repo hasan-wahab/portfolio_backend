@@ -54,6 +54,12 @@ function makeUpload(meta) {
     filename: (_req, file, cb) => {
       const ext = path.extname(file.originalname || '').toLowerCase() || meta.defaultExt;
       const safe = meta.allowed.has(ext) ? ext : meta.defaultExt;
+      // CV: unique name so each upload gets a fresh URL (avoids stale 404 after redeploy).
+      if (meta.filePrefix === 'cv') {
+        const stamp = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+        cb(null, `cv-${stamp}${safe}`);
+        return;
+      }
       cb(null, `${meta.filePrefix}${safe}`);
     },
   });

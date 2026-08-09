@@ -1,3 +1,5 @@
+const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const { FilePortfolioRepository } = require('./repositories/filePortfolioRepository');
@@ -21,8 +23,26 @@ function createApp() {
   );
   app.use(express.json({ limit: '2mb' }));
 
-  // Profile photos + brand logos
-  app.use('/uploads', express.static(UPLOADS_DIR));
+  // Uploaded media (profile, brand, CV, project shots)
+  app.use('/uploads', (req, res, next) => {
+    // ?download=1 → force download (portfolio "Download" option)
+    if (req.query.download === '1' || req.query.download === 'true') {
+      const name = path.basename(req.path);
+      if (!name || name === '.' || name === '..') {
+        return res.status(400).json({ error: 'Invalid file name.' });
+      }
+      const filePath = path.join(UPLOADS_DIR, name);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({
+          error: 'File not found. Please re-upload the CV/image in Admin (Railway disk may have been cleared on redeploy).',
+        });
+      }
+      return res.download(filePath, name);
+    }
+    return next();
+  });
+  app.use('/uploads', express.static(UPLOADS_DIR, { fallthrough: true }));
+
 
   app.get('/health', (_req, res) => {
     res.json({ ok: true, service: 'hasanwahab-portfolio-backend' });
