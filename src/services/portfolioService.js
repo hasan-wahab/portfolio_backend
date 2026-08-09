@@ -1,3 +1,5 @@
+const { hasCvAsset, clearCvAsset } = require('../routes/cvFileRoutes');
+
 class PortfolioService {
   /** @param {import('../repositories/filePortfolioRepository').FilePortfolioRepository} repository */
   constructor(repository) {
@@ -8,22 +10,19 @@ class PortfolioService {
     return this._repository.readSync();
   }
 
-  /** Public API payload — never send the heavy CV base64 blob to clients. */
   getPublicDocument(publicOrigin) {
     const full = this.getFullDocument();
     const doc = { ...full };
-    const hasBlob = !!(doc.cvFileBase64 && String(doc.cvFileBase64).trim());
     delete doc.cvFileBase64;
-    if (hasBlob && publicOrigin) {
-      doc.cvUrl = `${String(publicOrigin).replace(/\/+$/, '')}/api/portfolio/cv/file`;
+    const origin = publicOrigin ? String(publicOrigin).replace(/\/+$/, '') : '';
+    if (hasCvAsset() && origin) {
+      doc.cvUrl = `${origin}/api/portfolio/cv/file`;
     }
     return doc;
   }
 
   /**
-   * Replace portfolio document. Preserves durable CV blob if the client omitted it.
-   * @param {object} body
-   * @param {{ publicOrigin?: string }} [opts]
+   * Replace portfolio JSON. CV bytes stay in data/cv/ unless cvUrl is cleared.
    */
   replaceFullDocument(body, opts = {}) {
     const incoming = { ...body };
@@ -34,29 +33,24 @@ class PortfolioService {
       existing = {};
     }
 
-    const incomingCvUrl = String(incoming.cvUrl || '').trim();
-    const clearedCv = !incomingCvUrl;
+    delete incoming.cvFileBase64;
+
+    const clearedCv = !String(incoming.cvUrl || '').trim();
 
     if (clearedCv) {
-      delete incoming.cvFileBase64;
+      clearCvAsset();
+      incoming.cvUrl = '';
       delete incoming.cvFileName;
       delete incoming.cvMimeType;
-      incoming.cvUrl = '';
     } else {
-      // Admin Publish often omits base64 — keep the blob already on the server.
-      if (!incoming.cvFileBase64 && existing.cvFileBase64) {
-        incoming.cvFileBase64 = existing.cvFileBase64;
-        incoming.cvFileName = incoming.cvFileName || existing.cvFileName;
-        incoming.cvMimeType = incoming.cvMimeType || existing.cvMimeType;
+      if (!incoming.cvFileName && existing.cvFileName) {
+        incoming.cvFileName = existing.cvFileName;
       }
-      if (incoming.cvFileBase64 && opts.publicOrigin) {
+      if (!incoming.cvMimeType && existing.cvMimeType) {
+        incoming.cvMimeType = existing.cvMimeType;
+      }
+      if (hasCvAsset() && opts.publicOrigin) {
         incoming.cvUrl = `${String(opts.publicOrigin).replace(/\/+$/, '')}/api/portfolio/cv/file`;
-      } else if (incoming.cvFileBase64) {
-        // Keep a stable relative-style absolute URL if we already have one pointing at the API.
-        const prev = String(existing.cvUrl || '');
-        if (prev.includes('/api/portfolio/cv/file')) {
-          incoming.cvUrl = prev;
-        }
       }
     }
 
