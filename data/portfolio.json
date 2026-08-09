@@ -6,14 +6,17 @@
   "heroNameLine2": "Wahab",
   "heroInitials": "HW",
   "heroProfileImageUrl": "http://127.0.0.1:8787/uploads/profile.jpg",
-  "brandLogoUrl": "http://127.0.0.1:8787/uploads/brand.jpeg",
+  "brandLogoUrl": "http://127.0.0.1:8787/uploads/brand.jpg",
   "cvUrl": "http://127.0.0.1:8787/uploads/cv.pdf",
   "heroTagline": "I design and ship Flutter apps that feel fast, stay maintainable, and scale with real product needs — from Clean Architecture and Bloc to Firebase, REST, OCR, and AI-assisted features.",
   "heroBadges": [
+    "BLoC",
     "Clean Architecture",
-    "Bloc",
-    "Firebase",
-    "AI & OCR"
+    "http",
+    "Dio",
+    "GetIt",
+    "Sqflite",
+    "UI/UX"
   ],
   "heroStats": [
     {
@@ -31,17 +34,17 @@
   ],
   "aboutSectionEyebrow": "About",
   "aboutHeadline": "Product-minded\nFlutter engineering.",
-  "aboutParagraph1": "I build mobile products end to end — clear architecture, reliable state management, and interfaces that stay calm under complexity. My work sits at the intersection of Clean Architecture, Bloc, cloud-backed data, and device capabilities like OCR, NFC, and biometrics.",
+  "aboutParagraph1": "I build Flutter apps end to end — from product flow and UI to architecture, local storage, and shipping. Across my recent work I’ve delivered a patient care app with NFC check-in and offline clinical records, a QR/barcode scanner with Excel export, a multi-template CV builder with real PDF generation, an OCR study toolkit with AI homework help, and a property expense tracker with budgets, biometric unlock, and cloud sync. I work with Bloc, REST and Firebase where they fit, keep data reliable offline-first, and care about the details users actually feel.",
   "aboutParagraph2": "Based in Pakistan and open to remote collaboration worldwide. I communicate clearly with product and engineering teams, debug with discipline, and care about the details users actually feel.",
   "aboutCodeLine": "// hasanwahab · flutter · architecture · shipping",
   "aboutAchievements": [
     {
       "title": "Industry delivery at Neon Web",
-      "subtitle": "Owned feature work on production Flutter apps — Clean Architecture, Bloc, REST, Firebase, and third-party SDK integrations with Git-based collaboration."
+      "subtitle": "Owned feature work on production Flutter apps — Bloc, REST, Firebase, offline storage, and third-party SDK integrations with Git-based collaboration."
     },
     {
-      "title": "AI, OCR & offline-first systems",
-      "subtitle": "Shipped experiences powered by OpenAI, ML Kit, local SQLite with cloud sync, document exports, NFC, and biometric security."
+      "title": "OCR, NFC & offline-first systems",
+      "subtitle": "Shipped apps with ML Kit OCR, OpenRouter AI, SQLite with cloud sync, PDF/Excel exports, NFC check-in, and biometric unlock."
     }
   ],
   "aboutMiniStats": [
@@ -64,52 +67,114 @@
   ],
   "projects": [
     {
-      "title": "Scanix",
-      "tagline": "A production-ready scanner workspace for QR and barcodes — offline-first capture, cloud sync, and clean export flows for day-to-day data work.",
+      "title": "Patient Management App",
+      "tagline": "A Flutter patient app for a physiotherapy clinic that keeps care records, sessions, and billing in one place. Patients can view visits and clinical assessments, track session progress and invoices, submit visit feedback, and use an NFC digital card for clinic check-in — with SQLite caching so key data stays available offline.",
       "stats": [
-        "Offline-first",
-        "Cloud sync",
-        "Excel export"
+        "NFC patient card (HCE)",
+        "Offline clinical records",
+        "Visit & session tracking",
+        "Invoices & wallet",
+        "Visit reviews"
+      ],
+      "stack": [
+        "Flutter",
+        "BLoC",
+        "REST API",
+        "sqflite",
+        "NFC",
+        "go_router"
+      ],
+      "palette": [
+        "#00D4FF",
+        "#7B61FF"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.neonweb.dralitherapy_patientapp&pcampaignid=web_share",
+      "appStoreUrl": "",
+      "screenshotUrls": [
+        "http://127.0.0.1:8787/uploads/project-1786275028397-l58kem.jpeg",
+        "http://127.0.0.1:8787/uploads/project-1786275047800-dddhk3.jpeg",
+        "http://127.0.0.1:8787/uploads/project-1786275158608-9opujn.jpeg"
+      ],
+      "createdAt": "2020-01-01T00:00:00.000Z"
+    },
+    {
+      "title": "Expenseo App",
+      "tagline": "A Flutter expense tracker built around properties — homes, shops, and apartments — with monthly budgets in PKR, categorized spending, and optional receipt photos. Users review monthly breakdowns and export PDF reports, with offline SQLite storage and Firestore sync so data stays available and up to date.",
+      "stats": [
+        "Property budgets & spend tracking",
+        "Offline SQLite + Firestore sync",
+        "PDF reports"
       ],
       "stack": [
         "Flutter",
         "Bloc",
-        "ML Kit",
+        "Firebase Auth",
+        "Firestore",
         "sqflite",
-        "Firebase"
+        "PDF"
       ],
       "palette": [
-        "#FFB020",
+        "#00D4FF",
         "#7B61FF"
-      ]
+      ],
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "screenshotUrls": [],
+      "createdAt": "2020-01-01T00:01:00.000Z"
     },
     {
-      "title": "Resumiq",
-      "tagline": "An AI-assisted resume studio that helps candidates draft ATS-aware content, then save and sync work across devices with a structured Flutter architecture.",
+      "title": "CareerBoost CV Builder",
+      "tagline": "A Flutter resume builder where users pick from ten templates, fill a multi-step form, preview layouts, and save drafts locally. It generates real PDFs with share/export (plus DOCX), and unlocks extra templates with rewarded ads.",
       "stats": [
         "OpenAI",
         "Clean Arch",
         "Multi-device sync"
       ],
       "stack": [
-        "Flutter",
-        "Bloc",
-        "OpenAI",
-        "Firebase",
-        "GoRouter"
+        "10 PDF templates",
+        "Local drafts & library",
+        "PDF/DOCX export"
       ],
       "palette": [
         "#00D4FF",
         "#00FFB2"
-      ]
+      ],
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "screenshotUrls": [],
+      "createdAt": "2020-01-01T00:02:00.000Z"
+    },
+    {
+      "title": "Scanix",
+      "tagline": "A Flutter QR and barcode scanner that works from the live camera or gallery photos, then saves results locally with names and categories. History stays available offline in SQLite, and saved scans can be exported to Excel for day-to-day data management.",
+      "stats": [
+        "Live + gallery scanning",
+        "Offline SQLite history",
+        "Excel export"
+      ],
+      "stack": [
+        "Flutter",
+        "Bloc",
+        "ML Kit",
+        "mobile_scanner",
+        "sqflite"
+      ],
+      "palette": [
+        "#00D4FF",
+        "#7B61FF"
+      ],
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "screenshotUrls": [],
+      "createdAt": "2020-01-01T00:03:00.000Z"
     },
     {
       "title": "Neon Toolkit",
-      "tagline": "An OCR-powered study companion that extracts text, solves homework with AI, and delivers polished PDF outputs with thoughtful device UX.",
+      "tagline": "A Flutter study companion with Screenshot Brain that extracts text via OCR, sorts captures into smart folders, and exports polished PDFs — plus a Homework Solver that turns camera or typed questions into AI answers. Built with Bloc, SQLite, and Google ML Kit for an on-device first workflow with local history.",
       "stats": [
-        "OCR pipeline",
-        "AI solutions",
-        "PDF output"
+        "OCR + smart folders",
+        "AI homework solver",
+        "PDF export"
       ],
       "stack": [
         "Flutter",
@@ -121,47 +186,11 @@
       "palette": [
         "#7B61FF",
         "#FF6B9D"
-      ]
-    },
-    {
-      "title": "Expense Tracker",
-      "tagline": "A personal finance app in progress — biometric access, visual spend insights, receipt-aware flows, and offline-first sync for everyday money tracking.",
-      "stats": [
-        "FL Chart",
-        "Biometrics",
-        "In progress"
       ],
-      "stack": [
-        "Flutter",
-        "Bloc",
-        "Firebase",
-        "FL Chart",
-        "SQLite"
-      ],
-      "palette": [
-        "#00FFB2",
-        "#00D4FF"
-      ]
-    },
-    {
-      "title": "Doctor App",
-      "tagline": "A patient-facing healthcare experience with NFC identity, video therapy sessions, and resilient online/offline data so care stays available when the network does not.",
-      "stats": [
-        "NFC identity",
-        "Video care",
-        "Offline resilient"
-      ],
-      "stack": [
-        "Flutter",
-        "Bloc",
-        "NFC",
-        "Firebase",
-        "sqflite"
-      ],
-      "palette": [
-        "#00D4FF",
-        "#7B61FF"
-      ]
+      "playStoreUrl": "",
+      "appStoreUrl": "",
+      "screenshotUrls": [],
+      "createdAt": "2020-01-01T00:04:00.000Z"
     }
   ],
   "experience": [
@@ -172,7 +201,14 @@
       "detail": "Delivered and maintained production Flutter applications with Clean Architecture and Bloc. Integrated REST APIs, Firebase (Firestore and Realtime Database), and third-party SDKs. Collaborated through Git/GitHub and validated integrations with Postman, with a focus on performance, clarity, and long-term maintainability."
     }
   ],
-  "testimonials": [],
+  "testimonials": [
+    {
+      "name": "",
+      "role": "",
+      "initial": "",
+      "quote": ""
+    }
+  ],
   "contactEmail": "hasanwahab078@gmail.com",
   "contactPhone": "+92 348 9446989",
   "contactLocation": "Pakistan · Remote-friendly",
@@ -187,106 +223,178 @@
     {
       "title": "Flutter product development",
       "iconKey": "phone_android_rounded",
-      "description": "End-to-end Flutter apps with modular features, polished UI, and architecture that stays readable as the product grows."
+      "description": "End-to-end Flutter apps — patient care, scanners, CV builders, study tools, and expense trackers — with modular features and UI that stays clear as the product grows."
     },
     {
       "title": "Architecture & state",
       "iconKey": "account_tree_outlined",
-      "description": "Clean Architecture, Bloc, dependency injection, and navigation patterns that keep complex flows predictable."
+      "description": "Bloc-led feature flows, clean folder structure, dependency injection where it helps, and navigation patterns that keep complex screens predictable."
     },
     {
       "title": "Firebase & realtime systems",
       "iconKey": "cloud_done_rounded",
-      "description": "Auth, Firestore, Realtime Database, and offline-first sync designed around real user connectivity."
+      "description": "Firebase Auth, Firestore, and offline-first sync so user data stays available on device and catches up when the network returns."
     },
     {
       "title": "API integration",
       "iconKey": "api_rounded",
-      "description": "Stable Dio/HTTP layers, clear error handling, and API workflows that are easy to debug and extend."
+      "description": "Stable REST/HTTP layers, clear error handling, and API workflows that are easy to debug, extend, and ship with production backends."
     },
     {
       "title": "AI, OCR & device features",
       "iconKey": "auto_awesome_rounded",
-      "description": "OpenAI-powered experiences, ML Kit scanning/OCR, NFC, biometrics, and thoughtful device-side UX."
+      "description": "AI-assisted homework flows, ML Kit OCR and barcode scanning, NFC check-in, biometrics, and device UX built for real clinic and field use."
     },
     {
       "title": "Local data & exports",
       "iconKey": "storage_rounded",
-      "description": "SQLite, preferences, PDF generation, and Excel export pipelines for products that need durable local data."
+      "description": "SQLite and local storage for offline history, plus PDF and Excel export pipelines when users need shareable reports and records."
     }
   ],
   "skillRows": [
     {
-      "category": "Engineering",
+      "category": "Core",
       "name": "Flutter & Dart",
-      "proficiency": 0.93,
-      "iconKey": "layers_outlined"
-    },
-    {
-      "category": "Engineering",
-      "name": "Clean Architecture",
-      "proficiency": 0.9,
-      "iconKey": "account_tree_outlined"
-    },
-    {
-      "category": "Engineering",
-      "name": "Bloc",
-      "proficiency": 0.91,
-      "iconKey": "bolt_rounded"
-    },
-    {
-      "category": "Data & Cloud",
-      "name": "Firebase",
-      "proficiency": 0.9,
-      "iconKey": "cloud_outlined"
-    },
-    {
-      "category": "Data & Cloud",
-      "name": "REST (Dio / HTTP)",
-      "proficiency": 0.89,
-      "iconKey": "api_outlined"
-    },
-    {
-      "category": "Data & Cloud",
-      "name": "SQLite & Preferences",
-      "proficiency": 0.88,
-      "iconKey": "storage_rounded"
-    },
-    {
-      "category": "AI & Device",
-      "name": "OpenAI APIs",
-      "proficiency": 0.84,
-      "iconKey": "auto_awesome_rounded"
-    },
-    {
-      "category": "AI & Device",
-      "name": "OCR & ML Kit",
-      "proficiency": 0.86,
-      "iconKey": "hub_rounded"
-    },
-    {
-      "category": "AI & Device",
-      "name": "NFC & Biometrics",
-      "proficiency": 0.8,
+      "proficiency": 0.9908505394518337,
       "iconKey": "phone_android_rounded"
     },
     {
-      "category": "Delivery",
-      "name": "GoRouter & GetIt",
-      "proficiency": 0.85,
+      "category": "Core",
+      "name": "Bloc",
+      "proficiency": 0.820670610485246,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Architecture & app structure",
+      "name": "Clean Architecture",
+      "proficiency": 0.9670619792558618,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Architecture & app structure",
+      "name": "Repository pattern",
+      "proficiency": 0.9725516183555095,
       "iconKey": "share_outlined"
     },
     {
-      "category": "Delivery",
-      "name": "Git & GitHub",
-      "proficiency": 0.92,
-      "iconKey": "code_rounded"
+      "category": "Architecture & app structure",
+      "name": "GetIt / DI",
+      "proficiency": 0.9103353052426231,
+      "iconKey": "phone_android_rounded"
     },
     {
-      "category": "Delivery",
-      "name": "API debugging",
-      "proficiency": 0.88,
-      "iconKey": "api_rounded"
+      "category": "Architecture & app structure",
+      "name": "go_router",
+      "proficiency": 0.938393688152908,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Backend & data",
+      "name": "REST API / HTTP",
+      "proficiency": 0.9426634177940925,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Backend & data",
+      "name": "Firebase Auth",
+      "proficiency": 0.9512028770764615,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Backend & data",
+      "name": "Cloud Firestore",
+      "proficiency": 0.9621822483488828,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Backend & data",
+      "name": "sqflite",
+      "proficiency": 0.9615722470830882,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Backend & data",
+      "name": "SharedPreferences",
+      "proficiency": 1,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Backend & data",
+      "name": "Offline-first sync",
+      "proficiency": 1,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Device & media",
+      "name": "Google ML Kit (OCR / barcode)",
+      "proficiency": 0.9176548550665287,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Device & media",
+      "name": "mobile_scanner",
+      "proficiency": 0.949982967617998,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Device & media",
+      "name": "NFC (HCE)",
+      "proficiency": 0.938393688152908,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Device & media",
+      "name": "Biometrics (local_auth)",
+      "proficiency": 0.99634027162461,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Device & media",
+      "name": "image_picker",
+      "proficiency": 0.9987800905415367,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Device & media",
+      "name": "Camera / gallery",
+      "proficiency": 0.9981700892757421,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Exports & docs",
+      "name": "PDF generation",
+      "proficiency": 0.9280242250731555,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Exports & docs",
+      "name": "Excel export",
+      "proficiency": 0.8176207903025249,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "Exports & docs",
+      "name": "Share / file export",
+      "proficiency": 0.915215036149602,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "UI & shipping",
+      "name": "flutter_screenutil",
+      "proficiency": 0.9902406312591677,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "UI & shipping",
+      "name": "AdMob",
+      "proficiency": 0.9170449468738598,
+      "iconKey": "phone_android_rounded"
+    },
+    {
+      "category": "UI & shipping",
+      "name": "Git",
+      "proficiency": 0.9329039559801344,
+      "iconKey": "phone_android_rounded"
     }
   ]
 }

@@ -131,8 +131,11 @@ function createImageUploadRouters(portfolioService) {
 
         try {
           const doc = portfolioService.getFullDocument();
-          doc[meta.jsonKey] = url;
-          portfolioService.replaceFullDocument(doc);
+          // Only update this media field — never clear sibling profile/logo/CV URLs.
+          if (doc && typeof doc === 'object') {
+            doc[meta.jsonKey] = url;
+            portfolioService.replaceFullDocument(doc);
+          }
         } catch (e) {
           console.error('[upload] json update failed', e);
           return res.status(500).json({
@@ -154,7 +157,53 @@ function createImageUploadRouters(portfolioService) {
   const cvRouter = express.Router();
   cvRouter.post('/', requireAdminToken, handler('cv'));
 
-  return { profileRouter, brandRouter, cvRouter };
+  /** POST /api/portfolio/project-media — image only; returns URL (does not edit portfolio.json). */
+  const projectMediaRouter = express.Router();
+  const projectMediaUpload = multer({
+    storage: multer.diskStorage({
+      destination: (_req, _file, cb) => {
+        ensureUploadsDir();
+        cb(null, UPLOADS_DIR);
+      },
+      filename: (_req, file, cb) => {
+        const ext = path.extname(file.originalname || '').toLowerCase();
+        const safe = IMAGE_EXTS.has(ext) ? ext : '.jpg';
+        const stamp = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+        cb(null, `project-${stamp}${safe}`);
+      },
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 },
+    fileFilter: (_req, file, cb) => {
+      const ext = path.extname(file.originalname || '').toLowerCase();
+      const mime = (file.mimetype || '').toLowerCase();
+      if (IMAGE_EXTS.has(ext) || mime.startsWith('image/') || mime === 'application/octet-stream') {
+        cb(null, true);
+      } else {
+        cb(new Error('Only image files are allowed for project screenshots.'));
+      }
+    },
+  });
+
+  projectMediaRouter.post('/', requireAdminToken, (req, res) => {
+    projectMediaUpload.single('image')(req, res, (err) => {
+      if (err) {
+        console.error('[upload] project-media', err);
+        return res.status(400).json({
+          error: 'Upload failed. Please use a supported image and try again.',
+        });
+      }
+      if (!req.file) {
+        return res.status(400).json({
+          error: 'No file was received. Please choose a file and try again.',
+        });
+      }
+      const relativePath = `/uploads/${req.file.filename}`;
+      const url = `${publicOrigin(req)}${relativePath}`;
+      return res.json({ ok: true, kind: 'project-media', url, path: relativePath });
+    });
+  });
+
+  return { profileRouter, brandRouter, cvRouter, projectMediaRouter };
 }
 
 function createProfileImageRouter(portfolioService) {

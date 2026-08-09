@@ -32,11 +32,13 @@ function createApp() {
   const portfolioService = new PortfolioService(repository);
   const portfolioController = createPortfolioController(portfolioService);
   const portfolioRouter = createPortfolioRouter(portfolioController);
-  const { profileRouter, brandRouter, cvRouter } = createImageUploadRouters(portfolioService);
+  const { profileRouter, brandRouter, cvRouter, projectMediaRouter } =
+    createImageUploadRouters(portfolioService);
 
   app.use('/api/portfolio/profile-image', profileRouter);
   app.use('/api/portfolio/brand-logo', brandRouter);
   app.use('/api/portfolio/cv', cvRouter);
+  app.use('/api/portfolio/project-media', projectMediaRouter);
   app.use('/api/portfolio', portfolioRouter);
   app.use('/api/contact', createContactRouter());
 
