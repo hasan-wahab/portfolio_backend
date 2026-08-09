@@ -4,6 +4,7 @@ const express = require('express');
 const multer = require('multer');
 const { UPLOADS_DIR, PUBLIC_BASE_URL } = require('../config');
 const { requireAdminToken } = require('../middleware/requireAdminToken');
+const { mimeFromName, stableCvApiUrl } = require('./cvFileRoutes');
 
 const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif']);
 const CV_EXTS = new Set(['.pdf', '.doc', '.docx']);
@@ -133,13 +134,24 @@ function createImageUploadRouters(portfolioService) {
         }
 
         const relativePath = `/uploads/${req.file.filename}`;
-        const url = `${publicOrigin(req)}${relativePath}`;
+        let url = `${publicOrigin(req)}${relativePath}`;
 
         try {
           const doc = portfolioService.getFullDocument();
-          // Only update this media field — never clear sibling profile/logo/CV URLs.
           if (doc && typeof doc === 'object') {
-            doc[meta.jsonKey] = url;
+            if (kindKey === 'cv') {
+              // Durable: embed file in portfolio.json so Railway redeploys don't 404 the CV.
+              const bytes = fs.readFileSync(req.file.path);
+              const original = (req.file.originalname || req.file.filename || 'cv.pdf').toString();
+              doc.cvFileBase64 = bytes.toString('base64');
+              doc.cvFileName = original.replace(/[^\w.\-()+ ]+/g, '_') || req.file.filename;
+              doc.cvMimeType = req.file.mimetype || mimeFromName(doc.cvFileName);
+              url = stableCvApiUrl(req);
+              doc.cvUrl = url;
+            } else {
+              // Only update this media field — never clear sibling profile/logo/CV URLs.
+              doc[meta.jsonKey] = url;
+            }
             portfolioService.replaceFullDocument(doc);
           }
         } catch (e) {

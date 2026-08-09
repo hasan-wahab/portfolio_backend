@@ -7,6 +7,7 @@ const { PortfolioService } = require('./services/portfolioService');
 const { createPortfolioController } = require('./controllers/portfolioController');
 const { createPortfolioRouter } = require('./routes/portfolioRoutes');
 const { createImageUploadRouters, ensureUploadsDir } = require('./routes/profileImageRoutes');
+const { createCvFileRouter } = require('./routes/cvFileRoutes');
 const { createContactRouter } = require('./routes/contactRoutes');
 const { UPLOADS_DIR } = require('./config');
 
@@ -57,6 +58,8 @@ function createApp() {
 
   app.use('/api/portfolio/profile-image', profileRouter);
   app.use('/api/portfolio/brand-logo', brandRouter);
+  // CV file GET (view/download) + CV upload POST share /api/portfolio/cv
+  app.use('/api/portfolio/cv', createCvFileRouter(portfolioService));
   app.use('/api/portfolio/cv', cvRouter);
   app.use('/api/portfolio/project-media', projectMediaRouter);
   app.use('/api/portfolio', portfolioRouter);

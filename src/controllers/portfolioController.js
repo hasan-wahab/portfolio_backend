@@ -1,4 +1,12 @@
 const { validatePortfolioDocument } = require('../utils/validatePortfolioDocument');
+const { PUBLIC_BASE_URL } = require('../config');
+
+function requestOrigin(req) {
+  if (PUBLIC_BASE_URL) return PUBLIC_BASE_URL;
+  const host = req.get('x-forwarded-host') || req.get('host');
+  const proto = (req.get('x-forwarded-proto') || req.protocol || 'http').split(',')[0].trim();
+  return `${proto}://${host}`;
+}
 
 /**
  * @param {import('../services/portfolioService').PortfolioService} portfolioService
@@ -7,7 +15,7 @@ function createPortfolioController(portfolioService) {
   return {
     get(req, res) {
       try {
-        const doc = portfolioService.getFullDocument();
+        const doc = portfolioService.getPublicDocument(requestOrigin(req));
         res.setHeader('Cache-Control', 'no-store');
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.status(200).json(doc);
@@ -23,7 +31,7 @@ function createPortfolioController(portfolioService) {
       }
       try {
         validatePortfolioDocument(req.body);
-        portfolioService.replaceFullDocument(req.body);
+        portfolioService.replaceFullDocument(req.body, { publicOrigin: requestOrigin(req) });
         res.status(200).json({ ok: true });
       } catch (e) {
         const msg = String(e.message);
